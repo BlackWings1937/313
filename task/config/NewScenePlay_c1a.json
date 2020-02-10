@@ -1,0 +1,64 @@
+{
+    "backgroundMusci": "bgm_c1(1)_c1(2).mp3",
+    "bgconfig": "bgconfig_c1(1).json",
+	"tjpreKey": "NEW_257",
+    "AnimationList":[
+				{
+					"step": 1,
+					"state": "play",
+					"needclear":true
+					"bgconfig": "bgconfig_c1(1).json",
+					"JsonName":"c1(1)_01.json"
+				},
+				{
+					"step": 2,
+					"state": "waitMic",
+				},
+				{
+					"step": 3,
+					"state": "play",
+					"NotchangeZOrder": true,
+					"JsonName":"c1(1)_02.json"
+				},
+				{
+					"step": 4,
+					"state": "waitclick",
+					"needTip":true
+					"nodeName": "AESOP*npc_djk_c1a",
+					"tipScale": 0.6
+				},
+				{
+					"step": 5,
+					"state": "play",
+					"NotchangeZOrder": true,
+					"JsonName":"c1(1)_03.json"
+				},
+			],
+			"FreeClick": [
+			{
+				"step":4,
+				"clickList": [
+					{
+						"JsonName": "c1(1)_txy.json",
+						"NotchangeZOrder": true,
+						"nodeName": "AESOP*npc_txy"
+					},
+					{
+						"JsonName": "c1(1)_ndf.json",
+						"NotchangeZOrder": true,
+						"nodeName": "AESOP*npc_ndf"
+					},
+					{
+						"JsonName": "c1(1)_ftx.json",
+						"NotchangeZOrder": true,
+						"nodeName": "AESOP*npc_ftx"
+					},
+					{
+						"JsonName": "c1(1)_xbl.json",
+						"NotchangeZOrder": true,
+						"nodeName": "XBL"
+					}
+				]
+			}
+			]
+}

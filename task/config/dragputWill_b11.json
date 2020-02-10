@@ -1,0 +1,73 @@
+{
+	"backgroundMusci": "bgm_a11_b1_b2_b11.mp3",
+	"bgconfigJson": "b11_juqing01.json",
+	"startJsonName": "sdc264031",
+	"endJsonName": "sdc264035",
+	"tipJsonName": "",
+	"addNpc":true,
+	"addNpcInfo": {
+		"npcName": "2019shengdan_xiaxue_M",
+		"NpcX": 340,
+		"NpcY": 534,
+		"NpcScale": 1
+	},
+	"checkSpan":200,
+	"targetCount":3,
+	"thingsList": [{
+			"name": "AESOP*npc_xq01",
+			"maskBits":1,
+			"idleIndex":1,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+		},
+		{
+			"name": "AESOP*npc_xq02",
+			"maskBits":2,
+			"idleIndex":0,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+		},
+		{
+			"name": "AESOP*npc_xq03",
+			"maskBits":3,
+			"idleIndex":0,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+		},
+	]
+	"targetList": [
+		{
+			"name": "AESOP*npc_ui",
+			"maskBits":1,
+			"x":439,
+			"y":852,
+			"idleIndex":0,
+			"playRightIndex":1,
+			"tboneArray":"",
+			"boneArray": "xq_a,2019shengdan_xueqiao01lunzi_b11.png",
+		},
+		{
+			"name": "AESOP*npc_ui",
+			"maskBits":2,
+			"x":448,
+			"y":792,
+			"idleIndex":0,
+			"playRightIndex":1,
+			"tboneArray":"",
+			"boneArray": "xq_b,2019shengdan_xueqiao02zuowei_b11.png",
+		},
+		{
+			"name": "AESOP*npc_ui",
+			"maskBits":3,
+			"x":302,
+			"y":781,
+			"idleIndex":0,
+			"playRightIndex":1,
+			"tboneArray":"",
+			"boneArray": "xq_c,2019shengdan_xueqiao03sz_b11.png",
+		}			
+	]
+}

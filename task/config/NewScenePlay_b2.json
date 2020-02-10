@@ -1,0 +1,20 @@
+{
+    "backgroundMusci": "bgm_a11_b1_b2_b11.mp3",
+    "bgconfig": "bgconfig_2019sd_b2.json",
+	"addNpc":true,
+	"addNpcInfo": {
+		"npcName": "2019shengdan_xiaxue_M",
+		"NpcX": 340,
+		"NpcY": 534,
+		"NpcScale": 1
+	},
+    "AnimationList": [
+        {
+            "step": 1,
+            "state": "play",
+			"NotchangeZOrder": true,
+            "JsonName": "b2_juqing_01.json"
+        }
+    ]
+}
+	

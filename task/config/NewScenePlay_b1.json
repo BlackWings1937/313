@@ -1,0 +1,85 @@
+{
+    "backgroundMusci": "bgm_a11_b1_b2_b11.mp3",
+    "bgconfig": "bgconfig_2019sd_b1.json",
+	"addNpc":true,
+	"addNpcInfo": {
+		"npcName": "2019shengdan_xiaxue_M",
+		"NpcX": 340,
+		"NpcY": 534,
+		"NpcScale": 1
+	},
+    "AnimationList": [
+        {
+            "step": 1,
+            "state": "play",
+			"NotchangeZOrder": true,
+            "JsonName": "b1_juqing01.json"
+        },
+        {
+            "step": 2,
+            "state": "waitclick",
+            "nodeName": "AESOP*npc_ldh",
+            "tipScale": 0.6
+        },
+		{
+            "step": 3,
+            "state": "play",
+			"NotchangeZOrder": true,
+            "JsonName": "b1_juqing02.json"
+        },
+		{
+            "step": 4,
+            "state": "waitclick",
+            "nodeName": "AESOP*npc_xq",
+            "tipScale": 0.6
+        },
+    ],
+    "FreeClick": [
+        {
+            "step": 2,
+            "clickList": [
+                {
+                    "JsonName": "b1_zydj01_txy.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "AESOP*npc_txy"
+                },
+                {
+                    "JsonName": "b1_zydj01_xbl.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "XBL"
+                },
+                {
+                    "JsonName": "b1_zydj01_ftx.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "AESOP*npc_ftx"
+                }
+            ]
+        },
+		{
+            "step": 4,
+            "clickList": [
+                {
+                    "JsonName": "b1_zydj02_txy.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "AESOP*npc_txy"
+                },
+                {
+                    "JsonName": "b1_zydj02_xbl.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "XBL"
+                },
+                {
+                    "JsonName": "b1_zydj02_ftx.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "AESOP*npc_ftx"
+                },
+				{
+                    "JsonName": "b1_zydj02_ldh.json",
+                    "NotchangeZOrder": true,
+                    "nodeName": "AESOP*npc_ldh"
+                }
+            ]
+        }
+    ]
+}
+	

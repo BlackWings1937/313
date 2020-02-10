@@ -1,0 +1,13 @@
+{
+    "backgroundMusci": "bgm_pk_c12.mp3",
+    "bgconfig": "bgconfig_2019sd_c12.json",
+    "AnimationList": [
+        {
+            "step": 1,
+            "state": "play",
+			"NotchangeZOrder": true,
+            "JsonName": "c12_juqing_01.json"
+        }
+    ]
+}
+	

@@ -1,0 +1,34 @@
+{
+    "backgroundMusci": "bgm_a1_a2_c1_end.mp3",
+    "bgconfig": "bgconfig_2019sd_end.json",
+	"addNpc":true,
+	"addNpcInfo": {
+		"npcName": "2019shengdan_xiaxue_M",
+		"NpcX": 340,
+		"NpcY": 534,
+		"NpcScale": 1
+	},
+    "AnimationList": [
+        {
+            "step": 1,
+            "state": "play",
+            "NotchangeZOrder": true,
+            "JsonName": "end_juqing_01.json"
+        }, 
+		{
+			"step": 2,
+			"state": "waitMic"
+		},
+		{
+            "step": 3,
+            "state": "play",
+            "NotchangeZOrder": true,
+            "JsonName": "end_juqing_02.json"
+        },
+		{
+			"step": 4,
+            "state": "ending"
+		}
+    ]
+
+}

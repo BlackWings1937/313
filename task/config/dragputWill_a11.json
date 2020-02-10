@@ -1,0 +1,50 @@
+{
+	"backgroundMusci": "bgm_a11_b1_b2_b11.mp3",
+	"bgconfigJson": "bgconfig_a11.json",
+	"startJsonName": "a11_01.json",
+	"endJsonName": "a11_06.json",
+	"tipJsonName": "a11_05.json",
+	"needWrite":true,
+	"checkSpan":100,
+	"targetCount":1,
+	"thingsList": [{
+			"name": "AESOP*npc_lwb",
+			"maskBits":1,
+			"fingerIndex":3
+			"idleIndex":0,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+			"jsonname":"a11_02.json"
+		},
+		{
+			"name": "AESOP*npc_lwa",
+			"maskBits":1,
+			"fingerIndex":3
+			"idleIndex":0,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+			"jsonname":"a11_03.json"
+		},
+		{
+			"name": "AESOP*npc_lwc",
+			"maskBits":1,
+			"fingerIndex":3
+			"idleIndex":0,
+			"dragIndex":1,
+			"playIndex":2,
+			"endIndex":2,
+			"jsonname":"a11_04.json"
+		},
+	]
+	"targetList": [{
+			"name": "AESOP*npc_lwhz",
+			"maskBits":1,
+			"x":390,
+			"y":780,
+			"tboneArray":[],
+			"boneArray": [],
+		}	
+	]
+}

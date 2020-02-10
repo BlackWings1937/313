@@ -1,0 +1,49 @@
+{
+	"backgroundMusci": "bgm15.mp3",
+	"bgconfigJson": "191212lmm_bgt.json",
+	"opjson": "a11_a.json",
+	"endjson":"",
+	"targetCount":5,
+	"targetList": [{
+			"npcName": "AESOP*npc_yun_1",
+			"clickName":"AESOP*a11_dianji_1",
+			"startTime": "2019-12-06 00:00:00",
+			"playIndex": "2",
+			"endIndex": "3",
+			"szPlayIndex": "1"
+		},
+		{
+			"npcName": "AESOP*npc_yun_2",
+			"clickName":"AESOP*a11_dianji_2",
+			"idleIndex": "0",
+			"playIndex": "2",
+			"endIndex": "3",
+			"szPlayIndex": "2"
+		},
+		{
+			"npcName": "AESOP*npc_yun_3",
+			"clickName":"AESOP*a11_dianji_3",
+			"idleIndex": "0",
+			"playIndex": "2",
+			"endIndex": "3",
+			"szPlayIndex": "3"
+		},
+		{
+			"npcName": "AESOP*npc_yun_4",
+			"clickName":"AESOP*a11_dianji_4",
+			"idleIndex": "0",
+			"playIndex": "2",
+			"endIndex": "3",
+			"szPlayIndex": "4"
+		},
+		{
+			"npcName": "AESOP*npc_yun_5",
+			"clickName":"AESOP*a11_dianji_5",
+			"idleIndex": "0",
+			"playIndex": "2",
+			"endIndex": "3",
+			"szPlayIndex": "5"
+		}
+
+	]
+}

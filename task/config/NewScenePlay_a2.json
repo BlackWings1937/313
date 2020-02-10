@@ -1,0 +1,13 @@
+{
+    "backgroundMusci": "bgm_a1_a2_c1_end.mp3",
+    "bgconfig": "bgconfig_a2.json",
+	"isgift":true,
+    "AnimationList": [
+        {
+            "step": 1,
+            "state": "play",
+            "NotchangeZOrder": true,
+            "JsonName": "a2.json"
+        }
+    ]
+}

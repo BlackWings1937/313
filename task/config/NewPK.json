@@ -1,0 +1,41 @@
+{
+    "backgroundMusci": "bgm_e21.mp3",
+    "bgconfigJson": "bgconfig_2019sd_pk.json",
+    "ruchangJson": "pk_kaichang.json",
+    "ShoutJsonName": "E21_07.json",
+    "tipJsonName": "E21_09.json",
+	"addNpc":true,
+	"addNpcInfo": {
+		"npcName": "2019shengdan_xiaxue_M",
+		"NpcX": 340,
+		"NpcY": 534,
+		"NpcScale": 1
+	},
+    "PKList": [
+		"xblAttack": 
+			{
+				"JsonName": "pk_dljgt.json",
+				"state": true
+			}
+		
+		"bossAttack": 
+			{
+				"JsonName": "pk_wykkj.json",
+				"state": true
+			}
+		
+		"bigAttack": 
+			{
+				"JsonName": "pk_tqtb.json",
+				"state": true
+			}
+		"killAttack": 
+			{
+				"JsonName": "pk_qjz.json",
+				"state": true
+			}
+		
+    ],
+    "endJsonName": "E21_08a.json",
+    "endJsonName2": "E21_10.json"
+}
