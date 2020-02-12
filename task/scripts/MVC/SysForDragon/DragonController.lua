@@ -257,7 +257,7 @@ function DragonController:StartSceneGreeting()
             Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_start")
             self:getView():XBLSendTaskOrig(1,function() 
                 self:getData():UnlockItemsByRange(1,1);
-                self:getView():XBLSendTaskByDayIndex(1);
+                --self:getView():XBLSendTaskByDayIndex(1);
                 Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_skip")
             end);
             self:getData():UnShinyAllItem();
@@ -276,7 +276,7 @@ function DragonController:StartSceneGreeting()
                     -- todo record teday come here before.
                     local rear = math.min(self.unLockIndex_ ,self.dayIndex_);
                     self:getView():XBLSendTaskOrig(rear, function() 
-                        self:getView():XBLSendTaskByDayIndex(rear);
+                        --self:getView():XBLSendTaskByDayIndex(rear);
                     end);
                     self.localRecorder_:RecordUserDataToday(self.STR_LOCAL_EVENT_FIRST_ENTER_TODAY,self.STR_TRUE);
                 else 
@@ -313,12 +313,20 @@ function DragonController:StartSceneGreeting()
                                 end
                             end
                         elseif rear == self:GetActivityDay() then 
+
+
+
                             local curIdStr = UInfoUtil:getInstance():getCurUidStr();
                             local isTodayTaskComplie = (self.localRecorder_:GetFullAreaData("Gushi_2MKonglong_" .. rear .. "_"..curIdStr) ~= self.STR_FALSE);
                             local isCheerUp = (self.localRecorder_:GetUserData(self.STR_LOCAL_EVENT_CHEER_TASK_COMPLIE..rear) == self.STR_TRUE);
                             if isCheerUp == false then 
 
                                 if isTodayTaskComplie then 
+
+                                    local CustomEventType = requirePack("baseScripts.dataScripts.CustomEventType", false)
+                                    CustomEventDispatcher:getInstance():msgBroadcastLua(CustomEventType.CE_COLLECT_SHOW_NEW_GOOD, 25, true)
+
+
                                     Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..rear.."_success")
                                     Utils:GetInstance():baiduTongji("qunahuodongMD","310_end_start")
                                     print("rear == self:GetActivityDay()");
@@ -509,6 +517,8 @@ end
 ]]--
 function DragonController:Start(rootNode,view,data)
 
+
+
     Utils:GetInstance():baiduTongji("qunahuodongMD","310_enter_touchafter")
 
     self:initClearData();
@@ -548,7 +558,10 @@ function DragonController:Start(rootNode,view,data)
     self:DelayCallBack(0.1,function()
         self:StartSceneGreeting();
     end);
-    self:StartSendChatSeq();
+
+    self:DelayCallBack(10,function()
+        self:StartSendChatSeq();
+    end);
 end
 
 

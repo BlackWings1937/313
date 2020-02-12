@@ -182,19 +182,30 @@ function DragonView:Init()
     self.newArmPath_:setPosition(cc.p(378,1024-567));
     self.newArmPath_:playByIndex(0,LOOP_YES)
 
-    self.spStage_ = JsonScriptUtil.GetNpcByName(self,"npc_wutai");
+    self.spStage_ = JsonScriptUtil.GetNpcByName(self,"npc_wutai01");
     self.spStage_:setPosition(cc.p(384,1024-405));
     self.spStage_:setScale(0.426);
 
 
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb1_mov_twxm"):playByIndex(4,LOOP_YES);
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb2_mov_twxm"):playByIndex(4,LOOP_YES);
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb3_mov_twxm"):playByIndex(4,LOOP_YES);
+    JsonScriptUtil.GetNpcByName(self,"npc_mb1_mov_twxm"):playByIndex(4,LOOP_YES);
+    JsonScriptUtil.GetNpcByName(self,"npc_mb2_mov_twxm"):playByIndex(4,LOOP_YES);
+    JsonScriptUtil.GetNpcByName(self,"npc_mb3_mov_twxm"):playByIndex(4,LOOP_YES);
 
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb1"):setVisible(false);
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb2"):setVisible(false);
-    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb3"):setVisible(false);
-    JsonScriptUtil.GetNpcByName(self,"19212lmm_luj_twxm"):setVisible(false);
+
+--[[
+
+    JsonScriptUtil.GetNpcByName(self,"npc_suo1_twxm"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"npc_suo2_twxm"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"npc_suo3_twxm"):setVisible(false);
+
+
+    JsonScriptUtil.GetNpcByName(self,"npc_mb1"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"npc_mb2"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"npc_mb3"):setVisible(false);
+
+]]--
+
+    JsonScriptUtil.GetNpcByName(self,"npc_luj_twxm"):setVisible(false);
 
     self.xbl_ = self:getChildByName("XBL");
     self.lmm_ = JsonScriptUtil.GetNpcByName(self,"npc_txy");
@@ -268,15 +279,17 @@ function DragonView:Init()
     -- todo prepare new self check
     -- todo update bagid here
     --[[
-
+JsonScriptUtil.GetNpcByName(self,"npc_mb1")
+JsonScriptUtil.GetNpcByName(self,"npc_mb2")
+JsonScriptUtil.GetNpcByName(self,"npc_mb3")
     ]]--
     local itemList = {
-        {bgOfIcon = "202002fhkl_mb1",ArmName = "202002fhkl_mb1",BagId = 198,
-        Pos = SpriteUtil.ToFlashPoint(447,675),imgLock = "202002fhkl_suo3_twxm"},
-        {bgOfIcon = "202002fhkl_mb2",ArmName = "202002fhkl_mb2",BagId = 193,
-        Pos = SpriteUtil.ToFlashPoint(300,539),imgLock = "202002fhkl_suo2_twxm"},
-        {bgOfIcon = "202002fhkl_mb3",ArmName = "202002fhkl_mb3",BagId = 195,
-        Pos = SpriteUtil.ToFlashPoint(482,493),imgLock = "202002fhkl_suo1_twxm"},
+        {bgOfIcon = "202002fhkl_mb1",ArmName = JsonScriptUtil.GetNpcByName(self,"npc_mb1"),BagId = 198,
+        Pos = SpriteUtil.ToFlashPoint(441,665),imgLock = "202002fhkl_suo3_twxm"},
+        {bgOfIcon = "202002fhkl_mb2",ArmName = JsonScriptUtil.GetNpcByName(self,"npc_mb2"),BagId = 193,
+        Pos = SpriteUtil.ToFlashPoint(298,541),imgLock = "202002fhkl_suo2_twxm"},
+        {bgOfIcon = "202002fhkl_mb3",ArmName = JsonScriptUtil.GetNpcByName(self,"npc_mb3"),BagId = 195,
+        Pos = SpriteUtil.ToFlashPoint(475,501),imgLock = "202002fhkl_suo1_twxm"},
     };
     local count = #itemList;
     for i = 1,count ,1 do 
@@ -298,7 +311,47 @@ function DragonView:Init()
         );
        ai:setPosition(data.Pos);
     end
-   
+
+
+    -- 创建点击按钮
+    self.cbOfSetUp_ = nil;
+    self.btnBlockBg_ =  ButtonUtil.Create(
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        function()
+            print("block here....");
+        end);
+    self:addChild( self.btnBlockBg_,100090);
+    self.btnBlockBg_:setScale(10000);
+    self.btnBlockBg_:setPosition(cc.p(720/2,1024/2));
+
+    self.btnSetUp_ =  ButtonUtil.Create(
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        function()
+            if self.cbOfSetUp_  ~= nil then 
+                self.cbOfSetUp_();
+            end
+        end);
+    self:addChild( self.btnSetUp_,100090);
+    self.btnSetUp_:setPosition(cc.p(720/2,1024/2));
+    self:CloseSetUpView();
+end
+
+function DragonView:CloseSetUpView()
+    self.cbOfSetUp_  = nil;
+    self.btnBlockBg_ :setVisible(false);
+    self.btnSetUp_ :setVisible(false);
+end
+
+function DragonView:OpenSetUpView(cb)
+    self.cbOfSetUp_  = cb;
+    self.btnBlockBg_ :setVisible(true);
+    self.btnSetUp_ :setVisible(true);
+end
+
+function DragonView:PreOpenSetUpViewBlock()
+    self.btnBlockBg_ :setVisible(true);
 end
 
 function DragonView:UpdateItemStateList()
@@ -487,13 +540,17 @@ end
 
 function DragonView:XBLCheerTaskComplieByDayIndex(i,cb)
     self:PretentAsBoneByIndex(i);
+    self:PreOpenSetUpViewBlock();
     self.jaManager_:Play(JsonConfig.CheerTaskCompliePart1[i],function()
-        self.jaManager_:Play(JsonConfig.CheerTaskCompliePart2[i],function()
-            if cb ~= nil then 
-                cb();
-            end
-        end ,5);
-    end ,5);
+        self:OpenSetUpView(function()
+            self.jaManager_:Play(JsonConfig.CheerTaskCompliePart2[i],function()
+                if cb ~= nil then 
+                    cb();
+                end
+            end ,5);
+            self:CloseSetUpView();
+        end);
+    end ,6);
 end
 JsonConfig.XBLGreeting = "lmmxnpd026";
 function DragonView:XBLGreeting(cb)
@@ -528,12 +585,12 @@ end
  --  
 function DragonView:ClickXBLTipUpTask(i,cb)
     if i > 0 and i <= self:getController():GetActivityDay() then 
-        self.jaManager_:Play(JsonConfig.ClickXBLTipUp[i],cb,5);
+        self.jaManager_:Play(JsonConfig.ClickXBLTipUp[i],cb,4);
     end
 end
 JsonConfig.RemenberNextDay = "fhkl042";
 function DragonView:XBLRemenberNextDay()
-    self.jaManager_:Play(JsonConfig.RemenberNextDay,cb,5);
+    self.jaManager_:Play(JsonConfig.RemenberNextDay,cb,4);
 end
 
 function DragonView:ClickLMMTipUpTask(i,index,cb)----ClickLMMTipUpA
@@ -612,11 +669,11 @@ JsonConfig.ClickXBLRandSay = {
     "fhkl055",
 }
 function DragonView:XblClickRandPlay2(cb)
-    self:RandPlayByList(JsonConfig.ClickXblRandSay2,cb,5);
+    self:RandPlayByList(JsonConfig.ClickXblRandSay2,cb,4);
 end
 
 function DragonView:XblClickRandPlay(cb) 
-    self:RandPlayByList(JsonConfig.ClickXBLRandSay ,cb,5);
+    self:RandPlayByList(JsonConfig.ClickXBLRandSay ,cb,4);
 end
 
 function DragonView:IsRunningAction()
@@ -662,12 +719,12 @@ JsonConfig.ItemDownloading = "fhkl045";
 JsonConfig.ItemEnter = "fhkl046";
 JsonConfig.ItemLockedToday = "fhkl044";
 function DragonView:XBLTellLockedToday()
-    self.jaManager_:Play(JsonConfig.ItemLockedToday,cb,6);
+    self.jaManager_:Play(JsonConfig.ItemLockedToday,cb,4);
 end
 
 JsonConfig.ItemLockedUnOpen = "lmmxnpd061";
 function DragonView:ItemLockedUnOpen()
-    self.jaManager_:Play(JsonConfig.ItemLockedUnOpen,cb,6);
+    self.jaManager_:Play(JsonConfig.ItemLockedUnOpen,cb,4);
 end
 
 function DragonView:XBLTellItemEnter(cb)
@@ -726,23 +783,23 @@ end
 
 
 function DragonView:XBLTellGetBwl()
-    self.jaManager_:Play("fhkl047" ,function() end,5);
+    self.jaManager_:Play("fhkl047" ,function() end,4);
 end
 function DragonView:XBLTellGetSjl()
-    self.jaManager_:Play("fhkl049" ,function() end,5);
+    self.jaManager_:Play("fhkl049" ,function() end,4);
 end
 function DragonView:XBLTellGetJl()
-    self.jaManager_:Play("fhkl051" ,function() end,5);
+    self.jaManager_:Play("fhkl051" ,function() end,4);
 end
 
 function DragonView:BwlShowOff()
-    self.jaManager_:Play("fhkl048" ,function() end,5);
+    self.jaManager_:Play("fhkl048" ,function() end,4);
 end
 function DragonView:SjlShowOff()
-    self.jaManager_:Play("fhkl050" ,function() end,5);
+    self.jaManager_:Play("fhkl050" ,function() end,4);
 end
 function DragonView:JlShowOff()
-    self.jaManager_:Play("fhkl052" ,function() end,5);
+    self.jaManager_:Play("fhkl052" ,function() end,4);
 end
 
 

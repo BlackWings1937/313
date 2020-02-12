@@ -50,13 +50,13 @@ function JAManager:PlayBgConfig(jsonName,cb)
 end
 
 function JAManager:play(jsonName,cb,level)
-    print("playAction ------------------:"..jsonName);
+    print("playAction ------------------:"..jsonName.."level:"..level);
     JsonScriptUtil.PlayAction(self.stageNode_,jsonName,function(eventName) 
         print("eventName:"..eventName);
         if eventName == "Complie" or eventName == "Interupt" or eventName == "InternalINterupt" then 
             self:markActionStop();
         end
-        if eventName ~=  "Interupt" or eventName ~= "InternalINterupt"  then 
+        if eventName ~=  "Interupt" and eventName ~= "InternalINterupt"  then 
             if cb ~= nil then 
                 cb(eventName);
             end
@@ -74,7 +74,7 @@ function JAManager:stopAllAction()
 end
 
 function JAManager:Play(jsonName,cb,level)
-    print("jsonName:" .. jsonName .. "level:" .. level );
+    print("PjsonName:" .. jsonName .. "level:" .. level );
    -- if  self.runningAction_ ~= nil then 
    --     dump(self.runningAction_);
    -- end
@@ -97,6 +97,7 @@ function JAManager:Play(jsonName,cb,level)
             end
         end
     end
+    print("EjsonName:" .. jsonName .. "level:" .. level );
 end
 
 

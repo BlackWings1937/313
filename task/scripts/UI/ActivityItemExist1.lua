@@ -43,9 +43,12 @@ function ActivityItemExist1:Init(
 
     self.controller_ = controller;
 
+ 
     self.bg_ = TouchArmature:create(bg,TOUCHARMATURE_NORMAL);
     self:addChild(self.bg_);
     self.bg_:setPositionY(-22);
+    self.bg_ :setVisible(false);
+
 
     self.downloadProcess_ = ScaleProcess.new();
     self.downloadProcess_:Init(downloadProcessBg,downloadProcessContent);
@@ -56,8 +59,10 @@ function ActivityItemExist1:Init(
     self.decorationProcess_:setPositionX(-self.downloadProcess_:getContentSize().width/2);
     self.downloadProcess_:addChild(self.decorationProcess_);
 
-    self.arm_ = TouchArmature:create(armName,TOUCHARMATURE_NORMAL);
-    self:addChild(self.arm_);
+    self.arm_ = armName;
+    local ax,ay = armName:getPosition();
+    --self:setPosition(cc.p(ax,ay));
+    self:setZOrder(self.arm_:getZOrder()+1);
 
 
     self.spLock_ = SpriteUtil.Create(lockImg);
@@ -83,7 +88,7 @@ function ActivityItemExist1:Init(
     self.spNeedFixIcon_ = nil;
     self.spNeedUpdateIcon_ = SpriteUtil.Create(updateImg);--fixImg
     self.spNeedFixIcon_ = SpriteUtil.Create(fixImg);--fixImg
-    self.downloadProcess_:setPosition(cc.p(3.8,-37));
+    self.downloadProcess_:setPosition(cc.p(3.8,-37-20));
     self.downloadProcess_:addChild(self.spNeedUpdateIcon_,1000);
     self.downloadProcess_:addChild(self.spNeedFixIcon_,1000);
     self.spNeedFixIcon_:setVisible(false);

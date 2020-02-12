@@ -133,7 +133,10 @@ end
     n:舞台节点
 ]]--
 JsonScriptUtil.StopAllAction = function (n) 
+    print("start stopAllAction .......................................");
+
     g_tConfigTable.AnimationEngine:GetInstance():StopAllActionsOnTheater(n);
+    print("end stopAllAction .......................................");
 end
 
 
