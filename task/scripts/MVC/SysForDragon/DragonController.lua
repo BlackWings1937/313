@@ -121,10 +121,7 @@ function DragonController:LmmSendChat()
         local rand = math.random( 1,10 );
         if rand>=1 and rand<=3  then --
             -- 龙妹妹唱歌飘雪花
-            SoundUtil:getInstance():stopBackgroundMusic(
-                g_tConfigTable.sTaskpath.."audio/public_bgm_0112.mp3"
-            );
-           -- SoundUtil:getInstance():pauseBackgroundMusic();
+
             print("pause Bgm");
             self:getView():LMMActivityEnd2(function(eventName)
                 if eventName == "go" then 
@@ -134,11 +131,7 @@ function DragonController:LmmSendChat()
                     self:getView():StopSendSnowBallSeq();
                     self.isShowPaoPao_ = false;
                 elseif eventName == "Complie" then 
-                    --SoundUtil:getInstance():resumeBackgroundMusic();
-                    SoundUtil:getInstance():playBackgroundMusic(
-                        g_tConfigTable.sTaskpath.."audio/public_bgm_0112.mp3",
-                        true
-                    );
+
                     print("Resume Bgm");
                 end
             end);
@@ -215,22 +208,13 @@ function DragonController:SendChat(  )
 end
 
 function DragonController:StartSendChatSeq()
-    print("startSeq ----------------------- :1321");
-    self:RepeatForever(10,1321,function() 
+    self:RepeatForever(30,1321,function() 
         self:SendChat();
     end);
-
-    --[[
-    self:RepeatForever(5,1322,function() 
-        self:LmmSendChat();
-    end);
-    ]]--
 end
 
 function DragonController:StopSendChatSeq(  )
-    print("stopSeq ----------------------- :1321");
     self:StopRepeatForever(1321);
-    self:StopRepeatForever(1322);
 end
 
 function DragonController:IsCheerAllTask()
@@ -314,7 +298,7 @@ function DragonController:StartSceneGreeting()
                                     if rearIndex ~=  g_tConfigTable.TRY_ENTER_INDEXX then 
                                         self:getView():ItemTempLock(rearIndex);
                                     end
-
+                                    print("rear>0 and rear< self:GetActivityDay()");
                                     self:getView():XBLCheerTaskComplieByDayIndex(rear,function()
                                         local rearIndex = math.min(self.dayIndex_,self:getData():GetAimTaskIndex()) 
                                         if rearIndex > rear then 
@@ -337,11 +321,13 @@ function DragonController:StartSceneGreeting()
                                 if isTodayTaskComplie then 
                                     Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..rear.."_success")
                                     Utils:GetInstance():baiduTongji("qunahuodongMD","310_end_start")
+                                    print("rear == self:GetActivityDay()");
                                     self:getView():XBLCheerTaskComplieByDayIndex(rear,function() 
                                         self:getView():SuccessResult(function()
                                         
                                         end);
                                     end);
+                                    self.localRecorder_:RecordUserData(self.STR_LOCAL_EVENT_CHEER_TASK_COMPLIE..rear,self.STR_TRUE)
                                     return ;
                                 end
                             end
@@ -388,7 +374,7 @@ end
 function DragonController:OnUserClickXBL()
 
     if self.dayIndex_ == -1 then 
-        print("invaild index dayIndex:"..self.dayIndex_);
+        self:getView():XblClickRandPlay();
         return ;
     end
 
@@ -397,7 +383,7 @@ function DragonController:OnUserClickXBL()
     local curIdStr = UInfoUtil:getInstance():getCurUidStr();
 
     if self.unLockIndex_>=4 then 
-        print("after activity event");
+        self:getView():XblClickRandPlay();
     else 
         local isTodayTaskComplie = (self.localRecorder_:GetFullAreaData("Gushi_2MKonglong_" .. rearIndex .. "_"..curIdStr) ~= self.STR_FALSE);
         if isTodayTaskComplie == false then 
@@ -539,7 +525,7 @@ function DragonController:Start(rootNode,view,data)
         self:clearLocalData();
     end
     SoundUtil:getInstance():playBackgroundMusic(
-        g_tConfigTable.sTaskpath.."audio/public_bgm_0112.mp3",
+        g_tConfigTable.sTaskpath.."audio/bgm_no_8.mp3",
         true
     );
 
@@ -574,7 +560,7 @@ end
 ]]--
 function DragonController:Stop()
     SoundUtil:getInstance():stopBackgroundMusic(
-        g_tConfigTable.sTaskpath.."audio/public_bgm_0112.mp3"
+        g_tConfigTable.sTaskpath.."audio/bgm_no_8.mp3"
     );
     print("stop playBgm---------------------------");
 

@@ -187,6 +187,14 @@ function DragonView:Init()
     self.spStage_:setScale(0.426);
 
 
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb1_mov_twxm"):playByIndex(4,LOOP_YES);
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb2_mov_twxm"):playByIndex(4,LOOP_YES);
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb3_mov_twxm"):playByIndex(4,LOOP_YES);
+
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb1"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb2"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"202002fhkl_mb3"):setVisible(false);
+    JsonScriptUtil.GetNpcByName(self,"19212lmm_luj_twxm"):setVisible(false);
 
     self.xbl_ = self:getChildByName("XBL");
     self.lmm_ = JsonScriptUtil.GetNpcByName(self,"npc_txy");
@@ -241,7 +249,8 @@ function DragonView:Init()
             PathsUtil.ImagePath("btnXbl.png"),
             function()
                 print("click lmm");
-                self:getController():OnUserClickLMM();
+                self:getController():OnUserClickXBL();
+                --self:getController():OnUserClickLMM();
             end
         );--arm,imgpath,cb
     end--
@@ -262,9 +271,12 @@ function DragonView:Init()
 
     ]]--
     local itemList = {
-        {bgOfIcon = "202002fhkl_mb1",ArmName = "202002fhkl_mb1",BagId = 198,Pos = SpriteUtil.ToFlashPoint(439+10,673),imgLock = "202002fhkl_suo3_twxm"},
-        {bgOfIcon = "202002fhkl_mb2",ArmName = "202002fhkl_mb2",BagId = 193,Pos = SpriteUtil.ToFlashPoint(296+10,551),imgLock = "202002fhkl_suo2_twxm"},
-        {bgOfIcon = "202002fhkl_mb3",ArmName = "202002fhkl_mb3",BagId = 195,Pos = SpriteUtil.ToFlashPoint(470+10,514),imgLock = "202002fhkl_suo1_twxm"},
+        {bgOfIcon = "202002fhkl_mb1",ArmName = "202002fhkl_mb1",BagId = 198,
+        Pos = SpriteUtil.ToFlashPoint(447,675),imgLock = "202002fhkl_suo3_twxm"},
+        {bgOfIcon = "202002fhkl_mb2",ArmName = "202002fhkl_mb2",BagId = 193,
+        Pos = SpriteUtil.ToFlashPoint(300,539),imgLock = "202002fhkl_suo2_twxm"},
+        {bgOfIcon = "202002fhkl_mb3",ArmName = "202002fhkl_mb3",BagId = 195,
+        Pos = SpriteUtil.ToFlashPoint(482,493),imgLock = "202002fhkl_suo1_twxm"},
     };
     local count = #itemList;
     for i = 1,count ,1 do 
@@ -282,7 +294,7 @@ function DragonView:Init()
             commenTable.ImageUpdate,
             commenTable.ImageFix,
             self:getController(),
-            JsonScriptUtil.GetNpcByName(self,data.bgOfIcon)    --              
+            "202002fhkl_lujin_wutai03_twxm"   --              
         );
        ai:setPosition(data.Pos);
     end

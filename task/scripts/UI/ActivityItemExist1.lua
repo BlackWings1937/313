@@ -43,7 +43,9 @@ function ActivityItemExist1:Init(
 
     self.controller_ = controller;
 
-    self.bg_ = bg;
+    self.bg_ = TouchArmature:create(bg,TOUCHARMATURE_NORMAL);
+    self:addChild(self.bg_);
+    self.bg_:setPositionY(-22);
 
     self.downloadProcess_ = ScaleProcess.new();
     self.downloadProcess_:Init(downloadProcessBg,downloadProcessContent);
