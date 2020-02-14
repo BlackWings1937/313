@@ -101,6 +101,7 @@ function ActivityItem:registerDownloadEvent()
             --self:onEnter();
 		elseif sType == "onExit" then
             --self:onExit();
+            print("activityItem onExit");
             self:unRegisterDownloadEvent(); 
         elseif sType == "onStateChange" then
             self:onStateChangeLua();

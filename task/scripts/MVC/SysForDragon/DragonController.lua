@@ -158,6 +158,10 @@ function DragonController:LmmSendChat()
 end
 
 function DragonController:SendChat(  )
+    if self:getView():GetIsWaitingClick() then 
+        print("wait for click don send chat");
+        return ;
+    end
     if self:getView():IsRunningAction() then 
         return ;
     end
@@ -298,7 +302,7 @@ function DragonController:StartSceneGreeting()
                                     if rearIndex ~=  g_tConfigTable.TRY_ENTER_INDEXX then 
                                         self:getView():ItemTempLock(rearIndex);
                                     end
-                                    print("rear>0 and rear< self:GetActivityDay()");
+                                    print("rear>0 and rear< self:GetActivityDay()");-- mark
                                     self:getView():XBLCheerTaskComplieByDayIndex(rear,function()
                                         local rearIndex = math.min(self.dayIndex_,self:getData():GetAimTaskIndex()) 
                                         if rearIndex > rear then 
@@ -441,6 +445,10 @@ function DragonController:OnUserClickLMM()
 end
 
 function DragonController:OnUserClickLockItem(index)
+    if self:getView():GetIsDontTouchActivityItems() then 
+        self:getView():XBLTipNoData();
+        return ;
+    end
     if self.dayIndex_ == -1 then 
         --self:getView():ItemLockedUnOpen();
         print("invaild activity day:"..self.dayIndex_);
@@ -454,14 +462,18 @@ function DragonController:OnUserClickLockItem(index)
     
 end
 function DragonController:OnUserClickDownloadingItem()
-    if self.isShowPaoPao_ then 
-        return;
+    if self:getView():GetIsDontTouchActivityItems() then 
+        self:getView():XBLTipNoData();
+        return ;
     end
     self:getView():XBLTellItemDownloading(function() end);
 
 end
 function DragonController:OnUserClickEnterPackage(i,enterCb)
-
+    if self:getView():GetIsDontTouchActivityItems() then 
+        self:getView():XBLTipNoData();
+        return ;
+    end
     if self.unLockIndex_>=4 then
         enterCb("Complie");
     else
@@ -538,14 +550,32 @@ function DragonController:Start(rootNode,view,data)
         g_tConfigTable.sTaskpath.."audio/bgm_no_8.mp3",
         true
     );
-
     self:SetActivityDay(3); -- 设置活动时长
     BaseController.Start(self,rootNode,view,data);
-    
-    if self.isError_ then 
-        return;
-    end
 
+    -- 检查是否拉取到数据
+    if view:TestItemHasInfo() == false then 
+        -- todo broken net mode
+        print("broken net mode");
+         -- GetIsDontTouchActivityItems SetIsDontTouchActivityItems
+        self:DelayCallBack(0.1,function()
+            print("tell No data");
+            self:getView():XBLTellNoData();
+            self:getView():SetIsDontTouchActivityItems(true);
+            print("tell No data end");
+
+        end);
+        
+        --return ;
+    else 
+        self:DelayCallBack(0.1,function()
+            self:StartSceneGreeting();
+        end);
+    
+        self:DelayCallBack(10,function()
+            self:StartSendChatSeq();
+        end);
+    end
 
     self:setActivityStartDate(
         self.clearData_.Date.Year,
@@ -554,14 +584,6 @@ function DragonController:Start(rootNode,view,data)
         self.clearData_.Date.Hour,
         self.clearData_.Date.Min ,
         self.clearData_.Date.Sec ); -- 设置活动日期
-        
-    self:DelayCallBack(0.1,function()
-        self:StartSceneGreeting();
-    end);
-
-    self:DelayCallBack(10,function()
-        self:StartSendChatSeq();
-    end);
 end
 
 
@@ -576,8 +598,9 @@ function DragonController:Stop()
         g_tConfigTable.sTaskpath.."audio/bgm_no_8.mp3"
     );
     print("stop playBgm---------------------------");
-
-    self.localRecorder_:SaveToLocal();
+    if self.localRecorder_ ~= nil then 
+        self.localRecorder_:SaveToLocal();
+    end
     BaseController.Stop(self);
 end
 

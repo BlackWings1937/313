@@ -128,6 +128,23 @@ function DragonView:ctor()
     self.isShowPaoPao_ = false;
 
     self.isTellEnterPackage_ = false;
+
+    self.isDontTouchActivityItems_ = false;
+    self.isWaitingClick_ = false;
+end
+ 
+function DragonView:SetIsWaitingClick(v)
+    self.isWaitingClick_ = v;
+end
+function DragonView:GetIsWaitingClick() 
+    return self.isWaitingClick_;
+end
+
+function DragonView:SetIsDontTouchActivityItems(v)
+    self.isDontTouchActivityItems_ = v;
+end
+function DragonView:GetIsDontTouchActivityItems()
+    return self.isDontTouchActivityItems_;
 end
 -- 
 function DragonView:createCharactorBtn(arm,imgpath,cb)
@@ -265,7 +282,38 @@ function DragonView:Init()
             end
         );--arm,imgpath,cb
     end--
+    if self:GetIsDontTouchActivityItems() == false then 
+        self:InitItems();
+    end
+   
 
+    -- 创建点击按钮
+    self.cbOfSetUp_ = nil;
+    self.btnBlockBg_ =  ButtonUtil.Create(
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        function()
+            print("block here....");
+        end);
+    self:addChild( self.btnBlockBg_,100090);
+    self.btnBlockBg_:setScale(10000);
+    self.btnBlockBg_:setPosition(cc.p(720/2,1024/2));
+
+    self.btnSetUp_ =  ButtonUtil.Create(
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        PathsUtil.ImagePath("btnSnowBall.png"),
+        function()
+            if self.cbOfSetUp_  ~= nil then 
+                self.cbOfSetUp_();
+            end
+        end);
+    self:addChild( self.btnSetUp_,100090);
+    self.btnSetUp_:setPosition(cc.p(720/2,1024/2));
+    self.btnSetUp_:setScale(2.5);
+    self:CloseSetUpView();
+end
+
+function DragonView:InitItems()
     local commenTable = {};
     commenTable.ImageBtnItem                  = PathsUtil.ImagePath("btnItem.png") ;
     commenTable.ImageProcessBg                = PathsUtil.ImagePath("gui_jindu_bg.png");
@@ -276,13 +324,6 @@ function DragonView:Init()
     commenTable.ImageFix                         =   PathsUtil.ImagePath("btn_xiufu.png");
     commenTable.MenuType = 2;
     commenTable.ImageLock                         = PathsUtil.ImagePath("gui_lock_1.png") ;
-    -- todo prepare new self check
-    -- todo update bagid here
-    --[[
-JsonScriptUtil.GetNpcByName(self,"npc_mb1")
-JsonScriptUtil.GetNpcByName(self,"npc_mb2")
-JsonScriptUtil.GetNpcByName(self,"npc_mb3")
-    ]]--
     local itemList = {
         {bgOfIcon = "202002fhkl_mb1",ArmName = JsonScriptUtil.GetNpcByName(self,"npc_mb1"),BagId = 198,
         Pos = SpriteUtil.ToFlashPoint(441,665),imgLock = "202002fhkl_suo3_twxm"},
@@ -311,31 +352,30 @@ JsonScriptUtil.GetNpcByName(self,"npc_mb3")
         );
        ai:setPosition(data.Pos);
     end
+end
 
-
-    -- 创建点击按钮
-    self.cbOfSetUp_ = nil;
-    self.btnBlockBg_ =  ButtonUtil.Create(
-        PathsUtil.ImagePath("btnSnowBall.png"),
-        PathsUtil.ImagePath("btnSnowBall.png"),
-        function()
-            print("block here....");
-        end);
-    self:addChild( self.btnBlockBg_,100090);
-    self.btnBlockBg_:setScale(10000);
-    self.btnBlockBg_:setPosition(cc.p(720/2,1024/2));
-
-    self.btnSetUp_ =  ButtonUtil.Create(
-        PathsUtil.ImagePath("btnSnowBall.png"),
-        PathsUtil.ImagePath("btnSnowBall.png"),
-        function()
-            if self.cbOfSetUp_  ~= nil then 
-                self.cbOfSetUp_();
-            end
-        end);
-    self:addChild( self.btnSetUp_,100090);
-    self.btnSetUp_:setPosition(cc.p(720/2,1024/2));
-    self:CloseSetUpView();
+function DragonView:TestItemHasInfo()
+    local itemList = {
+        {bgOfIcon = "202002fhkl_mb1",BagId = 198,
+        Pos = cc.p(10000,665),imgLock = "202002fhkl_suo3_twxm"},
+        {bgOfIcon = "202002fhkl_mb2",BagId = 193,
+        Pos = cc.p(10000,541),imgLock = "202002fhkl_suo2_twxm"},
+        {bgOfIcon = "202002fhkl_mb3",BagId = 195,
+        Pos = cc.p(10000,501),imgLock = "202002fhkl_suo1_twxm"},
+    };
+    local count = #itemList;
+    for i = 1,count ,1 do 
+        local data = itemList[i];
+        local ai = ActivityItemExist1.new(2,data.BagId);
+       -- self:addChild(ai,100001);
+       ai:setPosition(data.Pos);
+       local str = ai:getMenuDataForLua();
+       print("json str:" .. str);
+       if str == "" then 
+           return false;
+       end
+    end
+    return true;
 end
 
 function DragonView:CloseSetUpView()
@@ -381,12 +421,16 @@ end
 function DragonView:Update(data)
 
     local listOfIiemData = data.ListOfItems;
-    local count =#listOfIiemData;
-    for i = 1,count ,1 do 
-        local itemData = listOfIiemData[i];
-        local item = self.listOfActivityItems_[i];
-        item:UpdateDataSelf(itemData);
+
+    if self:GetIsDontTouchActivityItems() == false then 
+        local count =#listOfIiemData;
+        for i = 1,count ,1 do 
+            local itemData = listOfIiemData[i];
+            local item = self.listOfActivityItems_[i];
+            item:UpdateDataSelf(itemData);
+        end
     end
+
 
     if data.AimTaskIndex ~= nil then 
 
@@ -470,6 +514,24 @@ function DragonView:StopSendSnowBallSeq()
 end
 
 -- ----- view 界面动画表演 -----
+function DragonView:XBLTellNoData()
+    print("XBLTellNoData start");
+
+    --self:DelayCallBack(0.5,function()
+        local fingerTip = TouchArmature:create("point_all", TOUCHARMATURE_NORMAL, "")
+        self:addChild(fingerTip,100020);
+        fingerTip:setPosition(cc.p(105,1027-150));
+        fingerTip:playByIndex(1,LOOP_YES);
+    --end);
+
+    self.jaManager_:Play("fhkl058",function() end,6);
+    print("XBLTellNoData end");
+end
+function DragonView:XBLTipNoData()
+    self.jaManager_:Play("fhkl058",function() end,6);
+    print("XBLTellNoData end");
+end
+
 JsonConfig.XBLNormalGreeting = "lmmxnpd057";
 function DragonView:XBLNormalGreeting(cb)
     --self.jaManager_:Play
@@ -541,9 +603,13 @@ end
 function DragonView:XBLCheerTaskComplieByDayIndex(i,cb)
     self:PretentAsBoneByIndex(i);
     self:PreOpenSetUpViewBlock();
+    self:SetIsWaitingClick(true);
     self.jaManager_:Play(JsonConfig.CheerTaskCompliePart1[i],function()
+        
         self:OpenSetUpView(function()
             self.jaManager_:Play(JsonConfig.CheerTaskCompliePart2[i],function()
+    self:SetIsWaitingClick(false);
+
                 if cb ~= nil then 
                     cb();
                 end
