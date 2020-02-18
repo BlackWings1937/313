@@ -51,7 +51,7 @@ end
 
 function JAManager:play(jsonName,cb,level)
     print("playAction ------------------:"..jsonName.."level:"..level);
-    JsonScriptUtil.PlayAction(self.stageNode_,jsonName,function(eventName) 
+    JsonScriptUtil.PlayActionFronzenZ(self.stageNode_,jsonName,function(eventName) 
         print("eventName:"..eventName);
         if eventName == "Complie" or eventName == "Interupt" or eventName == "InternalINterupt" then 
             self:markActionStop();

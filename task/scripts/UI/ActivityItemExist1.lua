@@ -150,73 +150,21 @@ function ActivityItemExist1:updateItemView()
                 if self.data_.IsComplie then
                     -- 没有锁定 下载了 是今天 完成了 
                     ArmatureUtil.PlayLoop(self.arm_,7);
-                    --[[
-                    if self.isDownloading_ then 
-                        ArmatureUtil.PlayAndStay (self.arm_,3,7)
-                        self.arm_:setLuaCallBack(
-                            function(eType, _tempArm, sEvent)
-                                if eType == TouchArmLuaStatus_AnimEnd then
-                                    self:OnPlayClickItem();
-                                end
-                            end)
-                    else 
-                        ArmatureUtil.PlayLoop(self.arm_,7);
-                    end
-                    ]]--
+
                 else 
                     -- 没有锁定 下载了 是今天 没完成 
                     ArmatureUtil.PlayLoop(self.arm_,6);--
-                    --[[
-                    if self.isDownloading_ then 
-                        ArmatureUtil.PlayAndStay (self.arm_,3,6)
-                        self.arm_:setLuaCallBack(
-                            function(eType, _tempArm, sEvent)
-                                if eType == TouchArmLuaStatus_AnimEnd then
-                                    self:OnPlayClickItem();
-                                end
-                            end)
-                    else 
-                        ArmatureUtil.PlayLoop(self.arm_,6);--
-                    end
-                    ]]--
+  
                     
                 end
             else 
                 -- not shiny
                 if self.data_.IsComplie then 
                     ArmatureUtil.PlayLoop(self.arm_,7);
-                    --[[
-                    if self.isDownloading_ then 
-                        ArmatureUtil.PlayAndStay (self.arm_,3,7)
-                        self.arm_:setLuaCallBack(
-                            function(eType, _tempArm, sEvent)
-                                if eType == TouchArmLuaStatus_AnimEnd then
-                                    self:OnPlayClickItem();
-                                end
-                            end)
-                    else 
-                        ArmatureUtil.PlayLoop(self.arm_,7);
-                    end
-                    ]]--
-                    -- is complie
+
                 else 
                     ArmatureUtil.PlayLoop(self.arm_,5);--
-                    --[[
-                    if self.isDownloading_ then 
-                        ArmatureUtil.PlayAndStay (self.arm_,3,5)
-                        self.arm_:setLuaCallBack(
-                            function(eType, _tempArm, sEvent)
-                                if eType == TouchArmLuaStatus_AnimEnd then
-                                    self:OnPlayClickItem();
-                                end
-                            end)
-                        print("play transform ------------------------");
-                    else
-                        -- is complie
-                        ArmatureUtil.PlayLoop(self.arm_,5);--
-                        print("play not ------------------------");
-                    end
-                    ]]--
+
                 end
             end
             self.isDownloading_ = false;

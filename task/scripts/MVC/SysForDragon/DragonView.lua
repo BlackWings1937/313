@@ -277,8 +277,8 @@ function DragonView:Init()
             PathsUtil.ImagePath("btnXbl.png"),
             function()
                 print("click lmm");
-                self:getController():OnUserClickXBL();
-                --self:getController():OnUserClickLMM();
+                --self:getController():OnUserClickXBL();
+                self:getController():OnUserClickLMM();
             end
         );--arm,imgpath,cb
     end--
@@ -310,6 +310,13 @@ function DragonView:Init()
     self:addChild( self.btnSetUp_,100090);
     self.btnSetUp_:setPosition(cc.p(720/2,1024/2));
     self.btnSetUp_:setScale(2.5);
+
+
+    self.armPointAt_ =  TouchArmature:create("point_all",TOUCHARMATURE_NORMAL);
+    self:addChild(self.armPointAt_,100091);
+    self.armPointAt_:setPosition(cc.p(385,1024-525));
+    ArmatureUtil.PlayLoop(self.armPointAt_,0);
+
     self:CloseSetUpView();
 end
 
@@ -382,12 +389,14 @@ function DragonView:CloseSetUpView()
     self.cbOfSetUp_  = nil;
     self.btnBlockBg_ :setVisible(false);
     self.btnSetUp_ :setVisible(false);
+    self.armPointAt_:setVisible(false);
 end
 
 function DragonView:OpenSetUpView(cb)
     self.cbOfSetUp_  = cb;
     self.btnBlockBg_ :setVisible(true);
     self.btnSetUp_ :setVisible(true);
+    self.armPointAt_:setVisible(true);
 end
 
 function DragonView:PreOpenSetUpViewBlock()
@@ -608,7 +617,7 @@ function DragonView:XBLCheerTaskComplieByDayIndex(i,cb)
         
         self:OpenSetUpView(function()
             self.jaManager_:Play(JsonConfig.CheerTaskCompliePart2[i],function()
-    self:SetIsWaitingClick(false);
+                self:SetIsWaitingClick(false);
 
                 if cb ~= nil then 
                     cb();
@@ -794,15 +803,15 @@ function DragonView:ItemLockedUnOpen()
 end
 
 function DragonView:XBLTellItemEnter(cb)
-    if self.isTellEnterPackage_ == false then 
+   -- if self.isTellEnterPackage_ == false then 
         self.jaManager_:Play(JsonConfig.ItemEnter,function(e) 
             if cb ~= nil then 
                 cb(e);
-                self.isTellEnterPackage_ = false;
+                --self.isTellEnterPackage_ = false;
             end
-        end ,6);
-        self.isTellEnterPackage_ = true;
-    end
+        end ,4);
+        --self.isTellEnterPackage_ = true;
+  --  end
 end
 function DragonView:XBLTellItemDownloading( cb )
     self.jaManager_:Play(JsonConfig.ItemDownloading,cb,5);
@@ -813,6 +822,8 @@ function DragonView:XBLTellItemLocked(cb)
 end
 
 JsonConfig.FreeChatList = {
+    "fhkl054",
+    "fhkl056",
     "fhkl053",
     "fhkl055"
 }
@@ -854,6 +865,14 @@ end
 function DragonView:XBLTellGetSjl()
     self.jaManager_:Play("fhkl049" ,function() end,4);
 end
+function DragonView:TXYTell()
+    self:RandPlayByList(JsonConfig.TXYFreeChat,function() end,4);
+end
+
+JsonConfig.TXYFreeChat = {
+    "fhkl054",
+    "fhkl056",
+};
 function DragonView:XBLTellGetJl()
     self.jaManager_:Play("fhkl051" ,function() end,4);
 end

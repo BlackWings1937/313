@@ -141,28 +141,6 @@
   </animation>
   <animation name="7" fadeInTime="0" duration="11" scale="1" loop="1" autoTween="1" tweenEasing="NaN"/>
  </armature>
- <armature name="200125daojudi_tx">
-  <bone name="图层_5">
-   <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2"/>
-  </bone>
-  <skin name="default">
-   <slot name="图层_5" parent="图层_5" z="0">
-    <display name="kgy_jb_tx_hecehng_01_01" type="image">
-     <transform x="-0.2" y="0.1" skX="0" skY="0" scX="1" scY="1" pX="204.35" pY="204.35"/>
-    </display>
-   </slot>
-  </skin>
-  <animation name="0" fadeInTime="0" duration="147" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
-   <timeline name="图层_5" scale="1" offset="0">
-    <frame z="0" tweenEasing="0" tweenRotate="2" duration="146">
-     <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" duration="1">
-     <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2" pX="0" pY="0"/>
-    </frame>
-   </timeline>
-  </animation>
- </armature>
  <armature name="202002fhkl_01_bwl">
   <bone name="图层 3">
    <transform x="16.85" y="153.9" skX="0" skY="0" scX="1.3668" scY="1"/>
@@ -261,7 +239,7 @@
    </slot>
    <slot name="guge_fg" parent="guge_fg" z="22">
     <display name="202002fhkl_bwl_fg" type="image">
-     <transform x="-0.1" y="-0.2" skX="0" skY="0" scX="1" scY="1" pX="366.25" pY="229.3"/>
+     <transform x="-0.1" y="-0.2" skX="0" skY="0" scX="1" scY="1" pX="135.75" pY="120.2"/>
     </display>
    </slot>
    <slot name="sound_2" parent="sound_2" z="26">
@@ -411,7 +389,7 @@
     </frame>
    </timeline>
   </animation>
-  <animation name="1" fadeInTime="0" duration="17" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
+  <animation name="1" fadeInTime="0" duration="17" scale="3" loop="1" autoTween="0" tweenEasing="NaN">
    <timeline name="图层 3" scale="1" offset="0">
     <frame z="0" duration="17">
      <transform x="16.85" y="153.9" skX="0" skY="0" scX="1.3668" scY="1" pX="0" pY="0"/>
@@ -3096,7 +3074,7 @@
     </frame>
    </timeline>
   </animation>
-  <animation name="8" fadeInTime="0" duration="31" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+  <animation name="8" fadeInTime="0" duration="31" scale="1" loop="1" autoTween="0" tweenEasing="NaN">
    <timeline name="图层 3" scale="1" offset="0">
     <frame z="0" duration="15">
      <transform x="16.85" y="153.9" skX="0" skY="0" scX="1.3668" scY="1" pX="0" pY="0"/>
@@ -3716,7 +3694,7 @@
    </slot>
    <slot name="gu_fg" parent="gu_fg" z="24">
     <display name="sjl_gu_fg" type="image">
-     <transform x="0" y="-0.1" skX="0" skY="0" scX="1" scY="1" pX="408.9" pY="260.5"/>
+     <transform x="0" y="-0.1" skX="0" skY="0" scX="1" scY="1" pX="195.7" pY="154.45"/>
     </display>
     <display name="sj12_bf_shanshan_tx_tu1" type="image">
      <transform x="0.15" y="-0.25" skX="0" skY="0" scX="1" scY="1" pX="28.1" pY="28.1"/>
@@ -3913,7 +3891,7 @@
     </frame>
    </timeline>
   </animation>
-  <animation name="1" fadeInTime="0" duration="17" scale="1" loop="0" autoTween="0" tweenEasing="2">
+  <animation name="1" fadeInTime="0" duration="17" scale="1" loop="1" autoTween="0" tweenEasing="2">
    <timeline name="图层 6" scale="1" offset="0">
     <frame z="0" duration="167">
      <transform x="34.4" y="157.75" skX="0" skY="0" scX="1.0543" scY="0.7713" pX="0" pY="0"/>
@@ -7349,7 +7327,7 @@
    </slot>
    <slot name="gu_fg" parent="gu_fg" z="20">
     <display name="jl_guge_fg" type="image">
-     <transform x="0" y="0.05" skX="0" skY="0" scX="1" scY="1" pX="470" pY="321.65"/>
+     <transform x="0" y="0.05" skX="0" skY="0" scX="1" scY="1" pX="190.05" pY="130.1"/>
     </display>
     <display name="guangxiao01" type="image">
      <transform x="0.05" y="-0.05" skX="0" skY="0" scX="1" scY="1" pX="135.5" pY="62.2"/>
@@ -8903,7 +8881,7 @@
      <transform x="-152.35" y="82.8" skX="11.46" skY="11.46" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
     </frame>
     <frame z="16" tweenEasing="0" duration="6">
-     <transform x="-152.4" y="79.05" skX="15.22" skY="15.22" scX="0.6385" scY="0.6385" pX="0.2" pY="-0.2"/>
+     <transform x="-152.4" y="79.05" skX="-4.08" skY="-4.08" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
     </frame>
     <frame z="16" duration="1">
      <transform x="-152.35" y="82.8" skX="11.46" skY="11.46" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
@@ -10180,7 +10158,7 @@
      <transform x="-152.35" y="82.8" skX="11.46" skY="11.46" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
     </frame>
     <frame z="16" tweenEasing="0" duration="6">
-     <transform x="-152.45" y="79.05" skX="14.69" skY="14.69" scX="0.6385" scY="0.6385" pX="0.2" pY="-0.3"/>
+     <transform x="-152.4" y="79.05" skX="-4.08" skY="-4.08" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
     </frame>
     <frame z="16" duration="1">
      <transform x="-152.35" y="82.8" skX="11.46" skY="11.46" scX="0.6385" scY="0.6385" pX="0.15" pY="-0.3"/>
@@ -11184,7 +11162,7 @@
    <transform x="-31" y="120.05" skX="0" skY="0" scX="0.6815" scY="0.6815"/>
   </bone>
   <bone name="tx">
-   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+   <transform x="-45" y="-26.65" skX="0" skY="0" scX="0.9454" scY="0.9321"/>
   </bone>
   <skin name="default">
    <slot name="3" parent="3" z="1">
@@ -11203,9 +11181,6 @@
     </display>
    </slot>
    <slot name="tx" parent="tx" z="3">
-    <display name="kong" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="12.5" pY="12.5"/>
-    </display>
     <display name="JOB001_gx_01_twxm" type="armature">
      <transform x="-0.1" y="0" skX="0" skY="0" scX="1" scY="1" pX="" pY=""/>
     </display>
@@ -11270,15 +11245,6 @@
      <transform x="-29.3" y="119" skX="0" skY="0" scX="1" scY="1" pX="-0.3" pY="-0.1"/>
     </frame>
    </timeline>
-   <timeline name="tx" scale="1" offset="0">
-    <frame duration="1" displayIndex="-1"/>
-    <frame z="3" sound="baoshi2.mp3" duration="23">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="3" sound="dendenden2.mp3" duration="17">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
   </animation>
   <animation name="2" fadeInTime="0" duration="2" scale="8" loop="0" autoTween="1" tweenEasing="2">
    <timeline name="2" scale="1" offset="0">
@@ -11320,7 +11286,7 @@
    </timeline>
    <timeline name="tx" scale="1" offset="0">
     <frame duration="18" displayIndex="-1"/>
-    <frame z="3" displayIndex="1" duration="26">
+    <frame z="3" duration="26">
      <transform x="-45" y="-26.65" skX="0" skY="0" scX="0.9454" scY="0.9321" pX="0" pY="0"/>
     </frame>
    </timeline>
@@ -11640,7 +11606,7 @@
    <transform x="-31" y="120.05" skX="0" skY="0" scX="0.6815" scY="0.6815"/>
   </bone>
   <bone name="tx">
-   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+   <transform x="-169.85" y="3.4" skX="0" skY="0" scX="0.9454" scY="0.9321"/>
   </bone>
   <skin name="default">
    <slot name="3" parent="3" z="1">
@@ -11659,9 +11625,6 @@
     </display>
    </slot>
    <slot name="tx" parent="tx" z="3">
-    <display name="kong" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="12.5" pY="12.5"/>
-    </display>
     <display name="JOB001_gx_01_twxm" type="armature">
      <transform x="-0.1" y="-0.1" skX="0" skY="0" scX="1" scY="1" pX="" pY=""/>
     </display>
@@ -11726,15 +11689,6 @@
      <transform x="-29.3" y="119" skX="0" skY="0" scX="1" scY="1" pX="-0.4" pY="-0.1"/>
     </frame>
    </timeline>
-   <timeline name="tx" scale="1" offset="0">
-    <frame duration="1" displayIndex="-1"/>
-    <frame z="3" sound="baoshi2.mp3" duration="23">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="3" sound="dendenden2.mp3" duration="17">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
   </animation>
   <animation name="2" fadeInTime="0" duration="2" scale="8" loop="0" autoTween="1" tweenEasing="2">
    <timeline name="2" scale="1" offset="0">
@@ -11776,7 +11730,7 @@
    </timeline>
    <timeline name="tx" scale="1" offset="0">
     <frame duration="18" displayIndex="-1"/>
-    <frame z="3" displayIndex="1" duration="26">
+    <frame z="3" duration="26">
      <transform x="-169.85" y="3.4" skX="0" skY="0" scX="0.9454" scY="0.9321" pX="0" pY="0"/>
     </frame>
    </timeline>
@@ -12095,7 +12049,7 @@
    <transform x="-31" y="120.05" skX="0" skY="0" scX="0.6815" scY="0.6815"/>
   </bone>
   <bone name="tx">
-   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+   <transform x="81.75" y="-4.7" skX="0" skY="0" scX="0.9454" scY="0.9321"/>
   </bone>
   <skin name="default">
    <slot name="图层_2" parent="图层_2" z="1">
@@ -12114,9 +12068,6 @@
     </display>
    </slot>
    <slot name="tx" parent="tx" z="3">
-    <display name="kong" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="12.5" pY="12.5"/>
-    </display>
     <display name="JOB001_gx_01_twxm" type="armature">
      <transform x="-0.1" y="0" skX="0" skY="0" scX="1" scY="1"/>
     </display>
@@ -12181,15 +12132,6 @@
      <transform x="-29.3" y="119" skX="0" skY="0" scX="1" scY="1" pX="-0.3" pY="-0.1"/>
     </frame>
    </timeline>
-   <timeline name="tx" scale="1" offset="0">
-    <frame duration="1" displayIndex="-1"/>
-    <frame z="3" sound="baoshi2.mp3" duration="23">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="3" sound="dendenden2.mp3" duration="17">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
   </animation>
   <animation name="2" fadeInTime="0" duration="2" scale="8" loop="0" autoTween="1" tweenEasing="2">
    <timeline name="2" scale="1" offset="0">
@@ -12231,7 +12173,7 @@
    </timeline>
    <timeline name="tx" scale="1" offset="0">
     <frame duration="18" displayIndex="-1"/>
-    <frame z="3" displayIndex="1" duration="26">
+    <frame z="3" duration="26">
      <transform x="81.75" y="-4.7" skX="0" skY="0" scX="0.9454" scY="0.9321" pX="0" pY="0"/>
     </frame>
    </timeline>
@@ -12921,7 +12863,7 @@
  </armature>
  <armature name="20191128daoju_tx_twxm">
   <bone name="图层_3">
-   <transform x="-8.45" y="1.8" skX="0" skY="0" scX="7.2709" scY="8.5918"/>
+   <transform x="-8.2" y="1.9" skX="0" skY="0" scX="5.8986" scY="2.652"/>
   </bone>
   <bone name="图层_2">
    <transform x="-1.95" y="-1.7" skX="0" skY="0" scX="1" scY="1"/>
@@ -12941,8 +12883,8 @@
   <animation name="0" fadeInTime="0" duration="43" scale="1" loop="1" autoTween="0" tweenEasing="NaN">
    <timeline name="图层_3" scale="1" offset="0">
     <frame z="0" duration="43">
-     <transform x="-8.45" y="1.8" skX="0" skY="0" scX="7.2709" scY="8.5918" pX="0" pY="0"/>
-     <colorTransform aO="0" rO="0" gO="0" bO="0" aM="60" rM="100" gM="100" bM="100"/>
+     <transform x="-8.2" y="1.9" skX="0" skY="0" scX="5.8986" scY="2.652" pX="0" pY="0"/>
+     <colorTransform aO="0" rO="0" gO="0" bO="0" aM="57" rM="100" gM="100" bM="100"/>
     </frame>
    </timeline>
    <timeline name="图层_2" scale="1" offset="0">
@@ -20013,7 +19955,7 @@
     </frame>
    </timeline>
   </animation>
-  <animation name="speak_mouse" fadeInTime="0" duration="6" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+  <animation name="speak_mouse" fadeInTime="0" duration="6" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
    <timeline name="1" scale="1" offset="0">
     <frame z="0" duration="3">
      <transform x="18.55" y="-10.35" skX="-25.99" skY="-25.99" scX="1" scY="1" pX="0.05" pY="0.05"/>
@@ -24603,25 +24545,6 @@
     </frame>
     <frame z="0" duration="3">
      <transform x="-0.05" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
-  </animation>
- </armature>
- <armature name="XBL2019_banwen_shou_00_rt_hey">
-  <bone name="a">
-   <transform x="0" y="0" skX="0" skY="0" scX="-1" scY="1"/>
-  </bone>
-  <skin name="default">
-   <slot name="a" parent="a" z="0">
-    <display name="XBL2019_banwen_shou_00" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="4.4" pY="7.85"/>
-    </display>
-   </slot>
-  </skin>
-  <animation name="0" fadeInTime="0" duration="2" scale="5" loop="0" autoTween="1" tweenEasing="2">
-   <timeline name="a" scale="1" offset="0">
-    <frame z="0" duration="2">
-     <transform x="0" y="0" skX="0" skY="0" scX="-1" scY="1" pX="0" pY="0"/>
     </frame>
    </timeline>
   </animation>
@@ -30093,52 +30016,21 @@
    </timeline>
   </animation>
  </armature>
- <armature name="XBL2019_CH_zui_happy01">
-  <bone name="ce_happyzui">
-   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+ <armature name="XBL2019_banwen_shou_00_rt_hey">
+  <bone name="a">
+   <transform x="0" y="0" skX="0" skY="0" scX="-1" scY="1"/>
   </bone>
   <skin name="default">
-   <slot name="ce_happyzui" parent="ce_happyzui" z="0">
-    <display name="XBL2019_CH_normalzui_03" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.45" pY="17.1"/>
-    </display>
-    <display name="XBL2019_CH_normalzui_01" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="35.85" pY="5"/>
-    </display>
-    <display name="XBL2019_CH_normalzui_02" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.85" pY="8.9"/>
-    </display>
-    <display name="XBL2019_CH_normalzui_04" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="11.25" pY="13.05"/>
-    </display>
-    <display name="XBL2019_CH_normalzui_05" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="25.35" pY="9.05"/>
+   <slot name="a" parent="a" z="0">
+    <display name="XBL2019_banwen_shou_00" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="4.4" pY="7.85"/>
     </display>
    </slot>
   </skin>
-  <animation name="idle_mouse" fadeInTime="0" duration="4" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
-   <timeline name="ce_happyzui" scale="1" offset="0">
-    <frame z="0" duration="4">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
-  </animation>
-  <animation name="speak_mouse" fadeInTime="0" duration="15" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
-   <timeline name="ce_happyzui" scale="1" offset="0">
-    <frame z="0" displayIndex="1" duration="3">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="2" duration="3">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" duration="3">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="3" duration="3">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="4" duration="3">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+  <animation name="0" fadeInTime="0" duration="2" scale="5" loop="0" autoTween="1" tweenEasing="2">
+   <timeline name="a" scale="1" offset="0">
+    <frame z="0" duration="2">
+     <transform x="0" y="0" skX="0" skY="0" scX="-1" scY="1" pX="0" pY="0"/>
     </frame>
    </timeline>
   </animation>
@@ -30192,6 +30084,136 @@
     </frame>
     <frame z="0" duration="3">
      <transform x="0" y="0" skX="0" skY="0" scX="0.8" scY="0.8" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="XBL2019_ZH_zui_01_hey2_mov">
+  <bone name="z">
+   <transform x="0.05" y="-0.25" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="zh_happyzui">
+   <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="z" parent="z" z="1">
+    <display name="XBL2019_ZH_zui_01_hey2" type="image">
+     <transform x="-0.05" y="0.25" skX="0" skY="0" scX="1" scY="1" pX="38.75" pY="5.85"/>
+    </display>
+   </slot>
+   <slot name="zh_happyzui" parent="zh_happyzui" z="0">
+    <display name="XBL2019_ZH_happyzui_01" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="29.75" pY="9.55"/>
+    </display>
+    <display name="XBL2019_ZH_normalzui_02" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="34.6" pY="6.85"/>
+    </display>
+    <display name="XBL2019_ZH_happyzui_03" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="32.95" pY="12.85"/>
+    </display>
+    <display name="XBL2019_ZH_normalzui_04" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="16.05" pY="9.75"/>
+    </display>
+    <display name="XBL2019_ZH_normalzui_05" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.75" pY="7.45"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="idle_mouse" fadeInTime="0" duration="3" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+   <timeline name="z" scale="1" offset="0">
+    <frame z="1" duration="3">
+     <transform x="0.05" y="-0.25" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+  <animation name="speak_mouse" fadeInTime="0" duration="15" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
+   <timeline name="zh_happyzui" scale="1" offset="0">
+    <frame z="0" duration="3">
+     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="1" duration="3">
+     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="2" duration="3">
+     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="3" duration="3">
+     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="4" duration="3">
+     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="XBL2019_CH_zui_happy01">
+  <bone name="ce_happyzui">
+   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="ce_happyzui" parent="ce_happyzui" z="0">
+    <display name="XBL2019_CH_normalzui_03" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.45" pY="17.1"/>
+    </display>
+    <display name="XBL2019_CH_normalzui_01" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="35.85" pY="5"/>
+    </display>
+    <display name="XBL2019_CH_normalzui_02" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.85" pY="8.9"/>
+    </display>
+    <display name="XBL2019_CH_normalzui_04" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="11.25" pY="13.05"/>
+    </display>
+    <display name="XBL2019_CH_normalzui_05" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="25.35" pY="9.05"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="idle_mouse" fadeInTime="0" duration="4" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+   <timeline name="ce_happyzui" scale="1" offset="0">
+    <frame z="0" duration="4">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+  <animation name="speak_mouse" fadeInTime="0" duration="15" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
+   <timeline name="ce_happyzui" scale="1" offset="0">
+    <frame z="0" displayIndex="1" duration="3">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="2" duration="3">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" duration="3">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="3" duration="3">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" displayIndex="4" duration="3">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="200125daojudi_tx">
+  <bone name="图层_5">
+   <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2"/>
+  </bone>
+  <skin name="default">
+   <slot name="图层_5" parent="图层_5" z="0">
+    <display name="kgy_jb_tx_hecehng_01_01" type="image">
+     <transform x="-0.2" y="0.1" skX="0" skY="0" scX="1" scY="1" pX="204.35" pY="204.35"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="0" fadeInTime="0" duration="147" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
+   <timeline name="图层_5" scale="1" offset="0">
+    <frame z="0" tweenEasing="0" tweenRotate="2" duration="146">
+     <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" duration="1">
+     <transform x="3.85" y="-4.65" skX="0" skY="0" scX="1.2" scY="1.2" pX="0" pY="0"/>
     </frame>
    </timeline>
   </animation>
@@ -30262,64 +30284,6 @@
     </frame>
     <frame z="3" duration="1">
      <transform x="51.6" y="-33.95" skX="-100.8" skY="-98.96" scX="-0.8989" scY="0.9937" pX="0.1" pY="0"/>
-    </frame>
-   </timeline>
-  </animation>
- </armature>
- <armature name="XBL2019_ZH_zui_01_hey2_mov">
-  <bone name="z">
-   <transform x="0.05" y="-0.25" skX="0" skY="0" scX="1" scY="1"/>
-  </bone>
-  <bone name="zh_happyzui">
-   <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1"/>
-  </bone>
-  <skin name="default">
-   <slot name="z" parent="z" z="1">
-    <display name="XBL2019_ZH_zui_01_hey2" type="image">
-     <transform x="-0.05" y="0.25" skX="0" skY="0" scX="1" scY="1" pX="38.75" pY="5.85"/>
-    </display>
-   </slot>
-   <slot name="zh_happyzui" parent="zh_happyzui" z="0">
-    <display name="XBL2019_ZH_happyzui_01" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="29.75" pY="9.55"/>
-    </display>
-    <display name="XBL2019_ZH_normalzui_02" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="34.6" pY="6.85"/>
-    </display>
-    <display name="XBL2019_ZH_happyzui_03" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="32.95" pY="12.85"/>
-    </display>
-    <display name="XBL2019_ZH_normalzui_04" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="16.05" pY="9.75"/>
-    </display>
-    <display name="XBL2019_ZH_normalzui_05" type="image">
-     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="33.75" pY="7.45"/>
-    </display>
-   </slot>
-  </skin>
-  <animation name="idle_mouse" fadeInTime="0" duration="3" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
-   <timeline name="z" scale="1" offset="0">
-    <frame z="1" duration="3">
-     <transform x="0.05" y="-0.25" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-   </timeline>
-  </animation>
-  <animation name="speak_mouse" fadeInTime="0" duration="15" scale="1" loop="0" autoTween="0" tweenEasing="NaN">
-   <timeline name="zh_happyzui" scale="1" offset="0">
-    <frame z="0" duration="3">
-     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="1" duration="3">
-     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="2" duration="3">
-     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="3" duration="3">
-     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
-    </frame>
-    <frame z="0" displayIndex="4" duration="3">
-     <transform x="0" y="8.1" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
     </frame>
    </timeline>
   </animation>

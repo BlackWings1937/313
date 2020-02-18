@@ -27,7 +27,7 @@ function DragonController:clearLocalData() --STR_FALSE
     self.localRecorder_:RecordFullAreaData("Gushi_2MKonglong_" .."2_"..curIdStr,self.STR_FALSE);
     self.localRecorder_:RecordFullAreaData("Gushi_2MKonglong_" .."3_"..curIdStr,self.STR_FALSE);
 
-
+    print("clear all data");
 end
 
 function DragonController:ctor()
@@ -212,7 +212,7 @@ function DragonController:SendChat(  )
 end
 
 function DragonController:StartSendChatSeq()
-    self:RepeatForever(30,1321,function() 
+    self:RepeatForever(25,1321,function() 
         self:SendChat();
     end);
 end
@@ -442,6 +442,7 @@ function DragonController:OnClickSjl()
 end
 
 function DragonController:OnUserClickLMM()
+    self:getView():TXYTell();
 end
 
 function DragonController:OnUserClickLockItem(index)
