@@ -616,6 +616,7 @@ function DragonView:XBLCheerTaskComplieByDayIndex(i,cb)
     self.jaManager_:Play(JsonConfig.CheerTaskCompliePart1[i],function()
         
         self:OpenSetUpView(function()
+            Utils:GetInstance():baiduTongji("qunahuodongMD","313_shitou"..i.."_touch")
             self.jaManager_:Play(JsonConfig.CheerTaskCompliePart2[i],function()
                 self:SetIsWaitingClick(false);
 

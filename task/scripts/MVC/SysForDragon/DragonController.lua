@@ -258,11 +258,11 @@ function DragonController:StartSceneGreeting()
         if strIsEnterActivityBefore == self.STR_FALSE then 
             -- 第一次进入活动
             self:getData():LockAllItems();
-            Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_start")
+           -- Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_start")
             self:getView():XBLSendTaskOrig(1,function() 
                 self:getData():UnlockItemsByRange(1,1);
                 --self:getView():XBLSendTaskByDayIndex(1);
-                Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_skip")
+            --    Utils:GetInstance():baiduTongji("qunahuodongMD","310_op_skip")
             end);
             self:getData():UnShinyAllItem();
             self:getData():ShinyItemByDayIndex(1);
@@ -296,7 +296,7 @@ function DragonController:StartSceneGreeting()
                             local isCheerUp = (self.localRecorder_:GetUserData(self.STR_LOCAL_EVENT_CHEER_TASK_COMPLIE..rear) == self.STR_TRUE);
                             if isCheerUp == false then 
                                 if isTodayTaskComplie then 
-                                    Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..rear.."_success")
+                                   -- Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..rear.."_success")
                                     -- todo lock next ..
                                     local rearIndex = math.min(self.dayIndex_,self:getData():GetAimTaskIndex()) 
                                     if rearIndex ~=  g_tConfigTable.TRY_ENTER_INDEXX then 
@@ -384,7 +384,7 @@ end
 
 
 function DragonController:OnUserClickXBL()
-
+    Utils:GetInstance():baiduTongji("qunahuodongMD","313_xbl_touch")
     if self.dayIndex_ == -1 then 
         self:getView():XblClickRandPlay();
         return ;
@@ -419,16 +419,20 @@ function DragonController:OnClickBwl() -- XBLTellGetBwl XBLTellGetSjl XBLTellGet
     local curIdStr = UInfoUtil:getInstance():getCurUidStr();
     if self.localRecorder_:GetFullAreaData("Gushi_2MKonglong_" .."1_"..curIdStr) ~= self.STR_FALSE then
         self:getView():BwlShowOff();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_long1_touch")
     else 
         self:getView():XBLTellGetBwl();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_gujia1_touch")
     end
 end
 function DragonController:OnClickJl()
     local curIdStr = UInfoUtil:getInstance():getCurUidStr();
     if self.localRecorder_:GetFullAreaData("Gushi_2MKonglong_" .."3_"..curIdStr) ~= self.STR_FALSE then
         self:getView():JlShowOff();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_long3_touch")
     else 
         self:getView():XBLTellGetJl();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_gujia3_touch")
     end
 end
 function DragonController:OnClickSjl()
@@ -436,12 +440,15 @@ function DragonController:OnClickSjl()
     
     if self.localRecorder_:GetFullAreaData("Gushi_2MKonglong_" .."2_"..curIdStr) ~= self.STR_FALSE then
         self:getView():SjlShowOff();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_long2_touch")
     else 
         self:getView():XBLTellGetSjl();
+        Utils:GetInstance():baiduTongji("qunahuodongMD","313_gujia2_touch")
     end
 end
 
 function DragonController:OnUserClickLMM()
+    Utils:GetInstance():baiduTongji("qunahuodongMD","313_txy_touch")
     self:getView():TXYTell();
 end
 
@@ -532,7 +539,7 @@ function DragonController:Start(rootNode,view,data)
 
 
 
-    Utils:GetInstance():baiduTongji("qunahuodongMD","310_enter_touchafter")
+    Utils:GetInstance():baiduTongji("qunahuodongMD","313_enter1_touchafter")
 
     self:initClearData();
 

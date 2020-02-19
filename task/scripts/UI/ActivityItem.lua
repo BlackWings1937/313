@@ -366,8 +366,7 @@ function ActivityItem:OnPlayClickItem()
 
                 self.controller_:OnUserClickEnterPackage( self.data_.Index,function(e)
                     if e == "Complie" then 
-                        Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..self.data_.Index.."_enter"); 
-                        g_tConfigTable.gotoFromType="LMMDress";
+                        Utils:GetInstance():baiduTongji("qunahuodongMD","313_task"..self.data_.Index.."_enter"); 
                         g_tConfigTable.TRY_ENTER_INDEXX = self.data_.Index;
                         local storyid = StoryEngineScene.curStoryEngineScene:getStoryID();
                         print("self story id:"..storyid);
@@ -381,7 +380,7 @@ function ActivityItem:OnPlayClickItem()
                 self.controller_:OnUserClickDownloadingItem();
             end
             self:onClickItem();
-            Utils:GetInstance():baiduTongji("qunahuodongMD","310_task"..self.data_.Index.."_xiazai");
+            Utils:GetInstance():baiduTongji("qunahuodongMD","313_task"..self.data_.Index.."_xiazai");
             self.isDownloading_ = true;
         end
     end
